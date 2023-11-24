@@ -4,45 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89119923-06df-4bca-997c-33708c56619b" name="Changes" comment="Init commit">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/c9b5286f-b79b-42ca-869c-cecc4575d270.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/c9b5286f-b79b-42ca-869c-cecc4575d270/storage_v2/_src_/schema/data.qu8uAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/c9b5286f-b79b-42ca-869c-cecc4575d270/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/c9b5286f-b79b-42ca-869c-cecc4575d270/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/c9b5286f-b79b-42ca-869c-cecc4575d270/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/c9b5286f-b79b-42ca-869c-cecc4575d270/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/dto/CreateCourseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/filter/CurrentUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/mapper/CourseMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/config/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/config/SpringConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/controler/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/controler/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/controler/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/controler/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/filter/JWTAuthenticationTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/filter/JWTAuthenticationTokenFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/sequrity/CurrentUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/sequrity/CurrentUserDetailServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/service/CourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/service/JwtService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/util/JwtTokenUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/academy/campuscrafter/util/JwtTokenService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/academy/campuscrafter/mapper/UserMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/academy/campuscrafter/mapper/UserMapperImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="89119923-06df-4bca-997c-33708c56619b" name="Changes" comment="update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,7 +96,7 @@
       <workItem from="1700840333353" duration="2609000" />
       <workItem from="1700843381476" duration="5911000" />
       <workItem from="1700849589870" duration="5924000" />
-      <workItem from="1700860300930" duration="2993000" />
+      <workItem from="1700860300930" duration="3337000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <option name="closed" value="true" />
@@ -152,14 +114,34 @@
       <option name="project" value="LOCAL" />
       <updated>1700845219371</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update">
+      <option name="closed" value="true" />
+      <created>1700863799100</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1700863799100</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init commit" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>
