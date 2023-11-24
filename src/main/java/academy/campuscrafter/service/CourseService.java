@@ -5,6 +5,7 @@ import academy.campuscrafter.repository.CourseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -13,7 +14,19 @@ import java.util.UUID;
 public class CourseService {
     private final CourseRepository courseRepository;
 
-    public Optional<Course> findByID(UUID uuid){
+    public List<Course> findAll() {
+        return courseRepository.findAll();
+    }
+
+    public Course save(Course course) {
+        return courseRepository.save(course);
+    }
+
+    public void deleteById(UUID id) {
+        courseRepository.deleteById(id);
+    }
+
+    public Optional<Course> findByID(UUID uuid) {
         return courseRepository.findById(uuid);
     }
 
