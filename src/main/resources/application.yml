@@ -1,0 +1,8 @@
+platform:
+  security:
+    jwt:
+      issuer: campuscrafter
+      expiration: 30 #minutes
+      secretKey: your256bitsecretkeyyour256bitsecretkey
+
+
