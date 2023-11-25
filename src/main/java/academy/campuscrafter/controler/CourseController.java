@@ -3,9 +3,9 @@ package academy.campuscrafter.controler;
 import academy.campuscrafter.dto.CreateCourseDto;
 import academy.campuscrafter.mapper.CourseMapper;
 import academy.campuscrafter.mapper.UserMapper;
-import academy.campuscrafter.filter.CurrentUser;
 import academy.campuscrafter.model.Course;
 import academy.campuscrafter.model.Role;
+import academy.campuscrafter.filter.CurrentUser;
 import academy.campuscrafter.model.User;
 import academy.campuscrafter.service.CourseService;
 import academy.campuscrafter.service.UserService;
@@ -26,11 +26,11 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class CourseController {
     private final UserService userService;
-    //    private final PasswordEncoder passwordEncoder;//    private final JwtService jwtService;
     private final CourseMapper courseMapper;
     private final UserMapper userMapper;
     private final CourseService courseService;
 
+    // Retrieve all courses
     @GetMapping("/courses")
     public ResponseEntity<List<Course>> getAll() {
         List<Course> courses = courseService.findAll();
@@ -40,12 +40,16 @@ public class CourseController {
         return ResponseEntity.ok(courses);
     }
 
+
+    // Create a new course (Only TEACHER and ADMIN can create)
     @PostMapping("/courses")
     public ResponseEntity<Course> create(@RequestBody CreateCourseDto createCourseDto,
                                          @AuthenticationPrincipal CurrentUser currentUser) {
+        // Check if the current user is a TEACHER or ADMIN
         if (!userMapper.map(currentUser).getRole().equals(Role.TEACHER) && !userMapper.map(currentUser).getRole().equals(Role.ADMIN)) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
+
         Course course = courseMapper.map(createCourseDto);
         Optional<User> user = userService.findByEmail(currentUser.getEmail());
         course.setTeacher(user.get());
@@ -56,12 +60,16 @@ public class CourseController {
         return ResponseEntity.ok(course);
     }
 
+
+    // Delete a course by ID (Only TEACHER and ADMIN can delete)
     @DeleteMapping("/courses/{id}")
-    public ResponseEntity<Course> create(@PathVariable("id") UUID id, @AuthenticationPrincipal CurrentUser currentUser) {
+    public ResponseEntity<Course> delete(@PathVariable("id") UUID id, @AuthenticationPrincipal CurrentUser currentUser) {
+        // Check if the current user is a TEACHER or ADMIN
         if (!userMapper.map(currentUser).getRole().equals(Role.TEACHER) &&
                 !userMapper.map(currentUser).getRole().equals(Role.ADMIN)) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
+
         Optional<Course> courseOptional = courseService.findByID(id);
         if (courseOptional.isEmpty()) {
             return ResponseEntity.noContent().build();
@@ -69,4 +77,36 @@ public class CourseController {
         courseService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
+
+    // Update a course by ID (Only TEACHER and DMIN can update)
+    @PutMapping("/courses/{id}")
+    public ResponseEntity<Course> update(@PathVariable("id") UUID id,
+                                         @RequestBody CreateCourseDto updateCourseDto,
+                                         @AuthenticationPrincipal CurrentUser currentUser) {
+        // Retrieve the existing course
+        Optional<Course> courseOptional = courseService.findByID(id);
+        if (courseOptional.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+
+        Course existingCourse = courseOptional.get();
+        // Check if the current user is a TEACHER or ADMIN
+        if (!userMapper.map(currentUser).getRole().equals(Role.TEACHER) &&
+                !userMapper.map(currentUser).getRole().equals(Role.ADMIN)) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+
+        // Update the course details
+        existingCourse.setTitle(updateCourseDto.getTitle());
+        existingCourse.setDescription(updateCourseDto.getDescription());
+        existingCourse.setCredit(updateCourseDto.getCredit());
+        existingCourse.setEnrolmentLimit(updateCourseDto.getEnrolmentLimit());
+
+        // Save the updated course
+        courseService.save(existingCourse);
+
+        return ResponseEntity.ok(existingCourse);
+    }
+
 }

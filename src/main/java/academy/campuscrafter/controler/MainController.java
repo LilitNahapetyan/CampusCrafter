@@ -29,6 +29,7 @@ public class MainController {
     private final JwtTokenService jwtService;
     private final UserMapper userMapper;
 
+    // Authentication endpoint
     @PostMapping("/auth")
     public ResponseEntity<UserAuthResponseDto> auth(@RequestBody UserAuthRequestDto userAuthRequestDto) {
         Optional<User> byEmail = userService.findByEmail(userAuthRequestDto.getEmail());
@@ -43,19 +44,24 @@ public class MainController {
         return ResponseEntity.ok(new UserAuthResponseDto("Bearer " + token));
     }
 
+    // User registration endpoint
     @PostMapping("/register")
     public ResponseEntity<UserDto> register(@RequestBody CreateUserRequestDto createUserRequestDto) {
+        // Check if the email is already registered
         Optional<User> byEmail = userService.findByEmail(createUserRequestDto.getEmail());
         if (byEmail.isPresent()) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+            return ResponseEntity.status(HttpStatus.CONFLICT).build(); // Email conflict
         }
-        if (createUserRequestDto.getRole().equals("STUDENT") || createUserRequestDto.getRole().equals("TEACHER")) {
+
+        // Allow registration for roles: "STUDENT", "TEACHER", and "ADMIN"
+        if (createUserRequestDto.getRole().equals("STUDENT") || createUserRequestDto.getRole().equals("TEACHER") || createUserRequestDto.getRole().equals("ADMIN")) {
             User user = userMapper.map(createUserRequestDto);
             user.setPassword(passwordEncoder.encode(createUserRequestDto.getPassword()));
             user.setJoinedDate(LocalDateTime.now());
             userService.save(user);
-            return ResponseEntity.ok(userMapper.mapToDto(user));
+            return ResponseEntity.ok(userMapper.mapToDto(user)); // Registration success
         }
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build(); // Invalid role
     }
 }

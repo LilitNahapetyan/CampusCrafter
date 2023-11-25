@@ -28,14 +28,11 @@ public class SpringConfig {
         httpSecurity.csrf().disable().exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)//aranc sessioni lini
                 .and().authorizeHttpRequests((requests) -> requests
-//                        .requestMatchers("/swagger-ui/**").permitAll()//                        .requestMatchers("/v3/api-docs/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/user/auth").permitAll().requestMatchers(HttpMethod.POST, "/user/register").permitAll()
-                        .requestMatchers(HttpMethod.DELETE, "/api/courses/**").authenticated().requestMatchers("/**").permitAll()
-//                        .requestMatchers(HttpMethod.POST, "/user").permitAll()//
-//                        .requestMatchers(HttpMethod.GET, "/user/id").authenticated()
-//                        .requestMatchers(HttpMethod.DELETE, "/user/id").hasAnyAuthority("ADMIN")//
-//                        .requestMatchers(HttpMethod.PUT, "/user").authenticated()
-//                        .requestMatchers("/categories/**").hasAnyAuthority("ADMIN")//                        .requestMatchers("/todo/**").authenticated()
+                        .requestMatchers(HttpMethod.POST, "/user/auth").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/user/register").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/api/courses/**").authenticated()
+                        .requestMatchers(HttpMethod.PUT, "/api/courses/**").authenticated()
+                        .requestMatchers("/**").permitAll()
                         .anyRequest().authenticated()).httpBasic();
         httpSecurity.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
