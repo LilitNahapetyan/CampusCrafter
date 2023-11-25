@@ -79,7 +79,7 @@ public class CourseController {
     }
 
 
-    // Update a course by ID (Only TEACHER and DMIN can update)
+    // Update a course by ID (Only TEACHER and ADMIN can update)
     @PutMapping("/courses/{id}")
     public ResponseEntity<Course> update(@PathVariable("id") UUID id,
                                          @RequestBody CreateCourseDto updateCourseDto,
